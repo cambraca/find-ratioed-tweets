@@ -1,6 +1,6 @@
 # Find Ratioed Tweets
 
-Small utility written in Go to find the most [ratioed]() tweets, given a search.
+Small utility written in Go to find the most [ratioed](https://www.esquire.com/news-politics/news/a54440/twitter-ratio-reply/) tweets, given a search.
 
 ## Limitations
 
