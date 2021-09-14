@@ -1,0 +1,22 @@
+version: '3.5'
+services:
+  go:
+    image: library/golang:1.17.1
+    volumes:
+      - './src:/src:rw'
+      - './run.sh:/run.sh'
+      - './docker/gopath/pkg/mod:/go/pkg/mod:rw'
+      - './docker/build-cache:/root/.cache/go-build:rw'
+    working_dir: /src
+    links:
+      - postgres
+
+  postgres:
+    image: postgres:13.2
+    ports:
+      - "54329:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - './docker/postgres-data:/var/lib/postgresql/data:rw'
+      - './postgresql-dev.conf:/var/lib/postgresql/data/postgresql.conf'
